@@ -2,6 +2,7 @@
 # programowanie garnka
 
 ### Zapiekanka, wariacja 2
+#### Składniki: szpinak, boczek wędzony, czosnek, ser topiony, mleko, pomidory, masło, mąka, ser żółty, cebula, makaron gniazdka, oliwa, przyprawy
 
 ```
 Makaron gniazdka gotujesz z oliwą i solą,
@@ -33,6 +34,7 @@ Piekarnik 180°C, 50 min.
 ---
 
 ### Coś na kształt Greckiej musaki, wariacja 1
+#### Składniki: cukinia, oliewa, cebula, pomidory, mięso mielone (wołowe), masło, mąka, mleko, jajko, ser żółty, przyprawy
 
 ```
 z 6-7 cukini, kroisz wzdłuż na paski <0.5cm
