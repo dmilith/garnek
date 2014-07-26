@@ -3,7 +3,8 @@
 
 ### Zapiekanka, wariacja 2
 
-`Makaron gniazdka gotujesz z oliwą i solą,
+```
+Makaron gniazdka gotujesz z oliwą i solą,
 w wodzie po makaronie gotujesz 5 minut szpinak (surowy),
 odcedzasz szpinak, kroisz na drobną kostkę,
 rozgrzewasz oliwę na patelni, na nią szpinak,
@@ -26,12 +27,15 @@ Dolewasz mleka tyle by uzyskać żądaną gęstość sosu.
 Polewasz sosem ser. Powinien być na tyle rzadki by przeniknął
 przez wszystkie warstwy zapiekanki.
 Popijasz sokiem pomidorowym.
-Piekarnik 180°C, 50 min.`
+Piekarnik 180°C, 50 min.
+```
+
 ---
 
 ### Coś na kształt Greckiej musaki, wariacja 1
 
-`z 6-7 cukini, kroisz wzdłuż na paski <0.5cm
+```
+z 6-7 cukini, kroisz wzdłuż na paski <0.5cm
 obsypujesz solą, odstawiasz na 15 minut aż puści sok (odlewasz)
 potem smażysz je na oliwie na średnim ogniu na rumiano
 z patelni odkładasz na ręczniki papierowe,
@@ -50,7 +54,8 @@ zalewasz na zapiekankę
 kruszysz/ścierasz ser żółty
 posypujesz bazylią
 mieszasz ser z sosem na górze, żeby nie wysuszyć sera)
-Piekarnik 180°C na 45 minut`
+Piekarnik 180°C na 45 minut
+```
 
 
 ---
