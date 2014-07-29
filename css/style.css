@@ -292,3 +292,7 @@ code {
 article {
   padding: 0.5em;
 }
+
+pre {
+  width: 26em;
+}
