@@ -87,7 +87,7 @@ content_file = Dir.pwd + "/index.html"
 
 write_file(header, content_file)
 Find.find(folder) do |f|
-  filename = File.basename(f)
+  filename = folder + "/" + File.basename(f)
   puts "Filename: #{filename}"
   if filename.end_with?(".html")
     write_file("<article>", content_file)
