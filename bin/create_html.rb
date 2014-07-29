@@ -52,6 +52,7 @@ def write_file(s, f)
 end
 
 def html_text_for_file(f)
+  puts "File: #{f}"
   markdown_text = text_of_file(f)
   RDiscount.new(markdown_text).to_html
 end
@@ -82,7 +83,7 @@ end
 
 header = "<html><head><title>Programowanie Garnka</title><link href=/css/style.css rel=stylesheet></head><body>"
 footer = "</body></html>"
-content_file = "index.html"
+content_file = Dir.pwd + "/index.html"
 
 write_file(header, content_file)
 Find.find(Dir.pwd) do |f|
