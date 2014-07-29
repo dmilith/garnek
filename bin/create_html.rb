@@ -98,7 +98,7 @@ end
 write_file(header, content_file)
 write_file("<article>", content_file)
 for i in file_list.reverse
-  write_file(text_of_file(i), content_file)
+  write_file(i, content_file)
 end
 write_file("</article>", content_file)
 write_file(footer, content_file)
