@@ -8,67 +8,55 @@ require 'rdiscount'
 require 'find'
 require 'fileutils'
 
-def markdown_file?(f)
 
+def markdown_file?(f)
   filename = File.basename(f)
 
-  if filename[0] == ?. then return false end
-  if FileTest.directory?(f) then return false end
+  if filename[0] == ?.
+    return false end
+  if FileTest.directory?(f)
+    return false end
 
   extension = File.extname(filename)
-  if extension == '.md' then return true end
+  if extension == '.md'
+    return true end
 
-  return false
-
+  false
 end
 
 def text_of_file(f)
-
   file = File.open(f, 'r')
   s = file.read
   file.close
-
-  return s
+  s
 end
 
 def filename_with_suffix_dropped(filename)
-
   filename_array = filename.split('.')
   filename_array.delete_at(filename_array.length - 1)
   filename = filename_array.join('.')
 
-  return filename
+  filename
 end
 
 def filename_with_suffix_changed(filename, new_suffix)
-
   filename = filename_with_suffix_dropped(filename)
-  return filename + new_suffix
+  filename + new_suffix
 end
 
 def write_file(s, f)
-
   FileUtils.mkdir_p(File.dirname(f))
-
-  f = File.open(f, 'w')
+  f = File.open(f, 'a')
   f.puts(s)
   f.close
 end
 
 def html_text_for_file(f)
-
   markdown_text = text_of_file(f)
-  html_text = RDiscount.new(markdown_text).to_html
-  filename = File.basename(f)
-
-  title = filename_with_suffix_dropped(filename)
-  file_text = "<html>\n<head><title>#{title}</title><link href=/css/style.css rel=stylesheet></head><body>#{html_text}</body></html>"
-
-  return file_text
+  RDiscount.new(markdown_text).to_html
 end
 
 def generate_and_write_html(f)
-
   filename = File.basename(f)
   html_filename = filename_with_suffix_changed(filename, '.html')
 
@@ -81,15 +69,26 @@ def generate_and_write_html(f)
 end
 
 
-folder = Dir.pwd
+folder = Dir.pwd + "/arts/"
 Find.find(folder) do |f|
-
   filename = File.basename(f)
 
   if markdown_file?(f)
-
     print(filename + "\n")
     generate_and_write_html(f)
-
   end
 end
+
+
+header = "<html><head><title>Programowanie Garnka</title><link href=/css/style.css rel=stylesheet></head><body>"
+footer = "</body></html>"
+content_file = "index.html"
+
+write_file(header, content_file)
+Find.find(Dir.pwd) do |f|
+  filename = File.basename(f)
+  write_file("<article>", content_file)
+  write_file(text_of_file(filename), content_file)
+  write_file("</article>", content_file)
+end
+write_file(footer, content_file)
