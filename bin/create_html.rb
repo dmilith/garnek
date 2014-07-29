@@ -86,7 +86,7 @@ footer = "<p><code>Garnek wczytany - 2014</code> <a href=\"https://twitter.com/d
 content_file = Dir.pwd + "/index.html"
 
 write_file(header, content_file)
-Find.find(folder) do |f|
+Find.find(folder).reverse do |f|
   filename = folder + "/" + File.basename(f)
   puts "Filename: #{filename}"
   if filename.end_with?(".html")
