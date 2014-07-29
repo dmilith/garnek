@@ -86,10 +86,12 @@ footer = "</body></html>"
 content_file = Dir.pwd + "/index.html"
 
 write_file(header, content_file)
-Find.find(Dir.pwd) do |f|
+Find.find(folder) do |f|
   filename = File.basename(f)
-  write_file("<article>", content_file)
-  write_file(text_of_file(filename), content_file)
-  write_file("</article>", content_file)
+  if filename.end_with?(".html")
+    write_file("<article>", content_file)
+    write_file(text_of_file(filename), content_file)
+    write_file("</article>", content_file)
+  end
 end
 write_file(footer, content_file)
