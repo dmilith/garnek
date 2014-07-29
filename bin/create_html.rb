@@ -85,14 +85,20 @@ header = "<html><head><title>Programowanie Garnka</title><link href=/css/style.c
 footer = "<p><code>Garnek wczytany - 2014</code> <a href=\"https://twitter.com/dmilith\" rel=\"noreferrer\">@dmilith</a></p></body></html>"
 content_file = Dir.pwd + "/index.html"
 
-write_file(header, content_file)
-Find.find(folder).reverse do |f|
+file_list = []
+Find.find(folder) do |f|
   filename = folder + "/" + File.basename(f)
   puts "Filename: #{filename}"
   if filename.end_with?(".html")
-    write_file("<article>", content_file)
-    write_file(text_of_file(filename), content_file)
-    write_file("</article>", content_file)
+    file_list << text_of_file(filename)
   end
 end
+
+# Write to output file:
+write_file(header, content_file)
+write_file("<article>", content_file)
+for i in file_list.reverse
+  write_file(text_of_file(i), content_file)
+end
+write_file("</article>", content_file)
 write_file(footer, content_file)
