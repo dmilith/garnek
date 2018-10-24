@@ -80,23 +80,29 @@ Find.find(folder) do |f|
 end
 
 
-header = "<html><head><title>Programowanie Garnka</title><link href=/css/style.css rel=stylesheet><meta charset=\"utf-8\"> </head><body><h2>Programowanie Garnka</h2>"
-footer = "<p><code>Garnek wczytany - 2014-2018</code> <a href=\"https://twitter.com/dmilith\" rel=\"noreferrer\">@dmilith</a></p></body></html>"
+header = "<html><head><title>Programowanie… garnka - log kulinarny.</title><link href=css/style.css rel=stylesheet><meta charset=\"utf-8\"> </head><body><pre><h1>Programowanie Garnka</h1></pre>"
+footer = "<hr/><pre><footer>2014-2018 - <a href=\"https://twitter.com/dmilith\" rel=\"noreferrer\">@dmilith</a></h4></footer></pre></body></html>"
 content_file = Dir.pwd + "/index.html"
 
 file_list = []
 Find.find(folder) do |f|
   filename = folder + "/" + File.basename(f)
-  if filename.end_with?(".html")
+  if filename.end_with? ".html"
     file_list << text_of_file(filename)
   end
 end
 
 # Write to output file:
-write_file(header, content_file)
-for i in file_list.reverse
-  write_file("<article>", content_file)
-  write_file(i, content_file)
-  write_file("</article>", content_file)
+write_file header, content_file
+for elem in file_list.reverse
+  # NOTE: change "pre" tags to regular "div":
+  a_file = elem.gsub! "pre", "div"
+  a_file = elem.gsub! "h3", "header"
+  a_file = elem.gsub! "h6", "section"
+  a_file = elem.gsub! "div", "summary"
+
+  write_file "<hr/><article>", content_file
+  write_file a_file, content_file
+  write_file "</article>", content_file
 end
 write_file(footer, content_file)
