@@ -20,10 +20,14 @@ install_deps () {
 
 # Install rdiscount Ruby-gem
 install_gem () {
-    note "Install Ruby-gem: $(distn "rdiscount")"
-    gem install \
-        --source "http://api.rubygems.org" \
-        "rdiscount"
+    _gemname="rdiscount" # gem name that is used to generate html from markdown.
+    ruby -r "${_gemname}" -e "puts 'ok'" >/dev/null 2>&1
+    if [ "0" = "${?}" ]; then
+        note "Ruby-gem: $(distn "${_gemname}") is already installed!"
+    else
+        gem install --source "http://api.rubygems.org" "rdiscount" \
+            && note "Installed Ruby-gem: $(distn "${_gemname}")"
+    fi
 }
 
 
