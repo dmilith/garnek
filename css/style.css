@@ -1,35 +1,10 @@
 body{
-    /*line-height: 2.9em;*/
     text-align: left;
 }
 h1 {
     color: grey;
 }
-
-/*h1, h2, h3, h4, h5, h6 {
-    font-weight: normal;
-    font-size: 1.1em;
-}
-h1 {
-    font-size: 1.23em;
-}
-h2 {
-    font-size: 3.9em;
-}
-h3 {
-    font-size: 1.1em;
-}
-h4 {
-    font-size: 1.5em;
-}
-h5 {
-    font-size: 1.7em;
-}
-h6 {
-    font-size: 0.9em;
-    line-height: 3.7em;
-}
-*/a {
+a {
     color: #0099ff;
     margin: 0;
     padding: 0;
@@ -40,7 +15,7 @@ a:hover {
     color: #ff6600;
 }
 a:visited {
-    color: purple;
+    color: green;
 }
 ul, ol {
     padding: 0;
@@ -114,21 +89,24 @@ article header {
     font-family: Consolas, Monaco, Andale Mono, monospace;
     font-weight: bold;
     text-decoration: underline;
-    font-size: 0.9em;
-    padding-bottom: 0.9em;
+    font-size: 0.77em;
+    padding-top: 0.1em;
+    padding-bottom: 1.3em;
 }
 article section {
-    font-style: italic-bold;
-    font-size: 0.59em;
-    color: grey;
+    font-size: 0.475em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #3A1AAD;
 }
 article summary {
-    font-weight: normal;
+    font-style: italic;
     text-decoration: none;
     color: black;
-    font-size: 0.5em;
-    padding-top: 0.9em;
-    padding-bottom: 0.9em;
+    line-height: 1.9em;
+    font-size: 0.57em;
+    padding-top: 1.3em;
+    padding-bottom: 1.1em;
 }
 
 footer {
@@ -137,5 +115,5 @@ footer {
   color: gray;
   font-size: 0.7em;
   padding-top: 0.1em;
-  padding-bottom: 1.1em;
+  padding-bottom: 1.3em;
 }
