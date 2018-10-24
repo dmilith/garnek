@@ -2,7 +2,9 @@
 
 install_gem() {
     printf "Installing gem rdiscount\n"
-    gem install rdiscount
+    gem install \
+        --source "http://api.rubygems.org" \
+        rdiscount
 }
 
 compile_markdown() {
