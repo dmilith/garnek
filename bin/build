@@ -6,9 +6,14 @@
 
 # Install software dependencies, but only if PWD/.dependencies file is present
 install_deps () {
-    if [ -f "${PWD}/.dependencies" ]; then
-        note "Install software dependencies from file: $(distn "${PWD}/.dependencies")"
-        ${SHELL} -c "s deps"
+    _ruby="$(which ruby 2>/dev/null)"
+    if [ -z "${_ruby}" ]; then
+        if [ -f "${PWD}/.dependencies" ]; then
+            note "Install software dependencies from file: $(distn "${PWD}/.dependencies")"
+            ${SHELL} -c "s deps"
+        fi
+    else
+        note "Ruby interpreter is available."
     fi
 }
 
