@@ -52,7 +52,7 @@ def write_file(s, f)
 end
 
 def html_text_for_file(f)
-  puts "File: #{f}"
+  puts "Translating: #{f} => html"
   markdown_text = text_of_file(f)
   RDiscount.new(markdown_text).to_html
 end
@@ -75,20 +75,18 @@ Find.find(folder) do |f|
   filename = File.basename(f)
 
   if markdown_file?(f)
-    print(filename + "\n")
     generate_and_write_html(f)
   end
 end
 
 
 header = "<html><head><title>Programowanie Garnka</title><link href=/css/style.css rel=stylesheet><meta charset=\"utf-8\"> </head><body><h2>Programowanie Garnka</h2>"
-footer = "<p><code>Garnek wczytany - 2014</code> <a href=\"https://twitter.com/dmilith\" rel=\"noreferrer\">@dmilith</a></p></body></html>"
+footer = "<p><code>Garnek wczytany - 2014-2018</code> <a href=\"https://twitter.com/dmilith\" rel=\"noreferrer\">@dmilith</a></p></body></html>"
 content_file = Dir.pwd + "/index.html"
 
 file_list = []
 Find.find(folder) do |f|
   filename = folder + "/" + File.basename(f)
-  puts "Filename: #{filename}"
   if filename.end_with?(".html")
     file_list << text_of_file(filename)
   end
