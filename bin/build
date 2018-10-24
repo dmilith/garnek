@@ -24,6 +24,7 @@ install_gem () {
     ruby -r "${_gemname}" -e "puts 'ok'" >/dev/null 2>&1
     if [ "0" = "${?}" ]; then
         note "Ruby-gem: $(distn "${_gemname}") is already installed!"
+        return 0
     else
         gem install --source "http://api.rubygems.org" "rdiscount" \
             && note "Installed Ruby-gem: $(distn "${_gemname}")"
@@ -38,20 +39,14 @@ compile_markdown () {
 }
 
 
-# Translate Markdown to HTML, install gem if necessary
-translate_md_to_html () {
-    install_gem \
-        && compile_markdown
-}
-
-
 # main()
 main () {
     bin/clean
-    install_deps && \
-        translate_md_to_html &&
-            note "Build completed!" && \
-            exit 0
+    install_deps \
+        && install_gem \
+            && compile_markdown \
+                && note "Build completed!" \
+                    && exit 0
 
     error "Build failed!"
 }
