@@ -1,15 +1,50 @@
 #!/bin/sh
 
-install_gem() {
-    printf "Installing gem rdiscount\n"
+# Load Sofin "Shell-API":
+. /Software/Sofin/share/loader
+
+
+# Install software dependencies, but only if PWD/.dependencies file is present
+install_deps () {
+    if [ -f "${PWD}/.dependencies" ]; then
+        note "Install software dependencies from file: $(distn "${PWD}/.dependencies")"
+        ${SHELL} -c "s deps"
+    fi
+}
+
+
+# Install rdiscount Ruby-gem
+install_gem () {
+    note "Install Ruby-gem: $(distn "rdiscount")"
     gem install \
         --source "http://api.rubygems.org" \
-        rdiscount
+        "rdiscount"
 }
 
-compile_markdown() {
-    printf "\nCompiling markdown\n"
-    ruby bin/create_html.rb
+
+# Run bin/create_html.rb to translate files
+compile_markdown () {
+    note "Translate: $(distn "Markdown") => $(distn "HTML")"
+    ${SHELL} -c "ruby bin/create_html.rb"
 }
 
-compile_markdown || (install_gem && compile_markdown)
+
+# Translate Markdown to HTML, install gem if necessary
+translate_md_to_html () {
+    compile_markdown \
+        || (install_gem && compile_markdown)
+}
+
+
+# main()
+main () {
+    install_deps && \
+        translate_md_to_html &&
+            note "Build completed!" && \
+            exit 0
+
+    error "Build failed!"
+}
+
+
+eval "main"
