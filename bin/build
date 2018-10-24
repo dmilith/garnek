@@ -40,8 +40,8 @@ compile_markdown () {
 
 # Translate Markdown to HTML, install gem if necessary
 translate_md_to_html () {
-    compile_markdown \
-        || (install_gem && compile_markdown)
+    install_gem \
+        && compile_markdown
 }
 
 
