@@ -38,6 +38,7 @@ translate_md_to_html () {
 
 # main()
 main () {
+    bin/clean
     install_deps && \
         translate_md_to_html &&
             note "Build completed!" && \
