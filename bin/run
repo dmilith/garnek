@@ -1,0 +1,5 @@
+#!/bin/sh
+
+bin/build && \
+    open "index.html"
+
