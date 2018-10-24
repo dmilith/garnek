@@ -80,7 +80,7 @@ Find.find(folder) do |f|
 end
 
 
-header = "<html><head><title>Programowanie… garnka - log kulinarny.</title><link href=css/style.css rel=stylesheet><meta charset=\"utf-8\"> </head><body><pre><h1>Programowanie Garnka</h1></pre>"
+header = "<html><head><title>Programowanie… garnka - log kulinarny.</title><link href=css/style.css rel=stylesheet><meta charset=\"utf-8\"> </head><body><pre><h1>Programowanie garnka</h1></pre>"
 footer = "<hr/><pre><footer>2014-2018 - <a href=\"https://twitter.com/dmilith\" rel=\"noreferrer\">@dmilith</a></h4></footer></pre></body></html>"
 content_file = Dir.pwd + "/index.html"
 

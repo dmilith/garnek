@@ -2,6 +2,10 @@ body{
     /*line-height: 2.9em;*/
     text-align: left;
 }
+h1 {
+    color: grey;
+}
+
 /*h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
     font-size: 1.1em;
@@ -130,8 +134,8 @@ article summary {
 footer {
   font-weight: bolder;
   text-decoration: none;
-  color: black;
-  font-size: 0.33em;
-  padding-top: 0;
+  color: gray;
+  font-size: 0.7em;
+  padding-top: 0.1em;
   padding-bottom: 1.1em;
 }
