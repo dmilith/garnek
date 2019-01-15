@@ -42,8 +42,8 @@ compile_markdown () {
 # main()
 main () {
     bin/clean
-    install_deps \
-        && install_gem \
+    # install_deps \
+        install_gem \
             && compile_markdown \
                 && note "Build completed!" \
                     && exit 0
